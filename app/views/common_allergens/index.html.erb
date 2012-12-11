@@ -1,0 +1,18 @@
+<h1>Eating Restrictions and Common Allergens</h1>
+
+<table>
+  <tr>
+    <th>Eating Restriction</th>
+    <th>&nbsp;</th>
+  </tr>
+
+<% @common_allergens.each do |common_allergen| %>
+  <tr>
+    <td><%= link_to 'Show', common_allergen %>|<%= link_to 'Edit', edit_common_allergen_path(common_allergen) %>|<%= link_to 'Destroy', common_allergen, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Common allergen', new_common_allergen_path %>

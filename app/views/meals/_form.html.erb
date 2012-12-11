@@ -1,0 +1,39 @@
+<%= form_for(@meal) do |f| %>
+  <% if @meal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
+
+      <ul>
+      <% @meal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+  <%= f.label :description %>:
+  <%= f.text_field :description %><br />
+  <%= f.label :street_address %>:
+  <%= f.text_field :street_address %><br />
+  <%= f.label :city %>:
+  <%= f.text_field :city %><br />
+  <%= f.label :state %>
+  <%= f.select(:state, ["AL","AK","AS","AZ","AR","CA","CO","CT","DE","DC","FM","FL","GA","GU","HI","ID","IL","IN","IA","KS","KY","LA","ME","MH","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","MP","OH","OK","OR","PW","PA","PR","RI","SC","SD","TN","TX","UT","VT","VA","VI","WA","WV","WI","WY"])%><br />
+  
+  <%= f.label :zip_code %>:
+  <%= f.text_field :zip_code %><br />
+  
+  Date: <%= date_select(@meal, :date, :default => 7.days.from_now) %> <br />
+  Time: <%= time_select(@meal, :time, :default => {:hour => 19, :minute => 0}, :ignore_date => true, :minute_step => 15)%><br />
+
+
+  <%= f.label :notes %>:
+  <%= f.text_area :notes %><br />
+  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

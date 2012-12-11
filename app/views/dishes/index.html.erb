@@ -1,0 +1,21 @@
+<h1>All Dishes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>&nbsp;</th>
+  </tr>
+
+<% @dishes.each do |dish| %>
+  <tr>
+    <td><%= dish.name %></td>
+    <td><%= truncate(dish.description,:length => 50) %> </td>
+    <td><%= link_to 'Show', dish %>|<%= link_to 'Edit', edit_dish_path(dish) %>|<%= link_to 'Delete', dish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Dish', new_dish_path %>

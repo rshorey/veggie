@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+<p> <%= @dish.name %> </p>
+<p> <%= @dish.description %> </p>
+<p> Eating restriction information: </p>
+<% CommonAllergen.find(:all).each do |ca| %>
+  <p> <%= ca.name %>: <%= @dish.contains_allergen?(ca) ? "Yes!" : "No" %> </p>
+<% end %>
+
+<%= link_to 'Edit', edit_dish_path(@dish) %> |
+<%= link_to 'Back', dishes_path %>
