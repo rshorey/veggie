@@ -2,16 +2,16 @@
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Name</th>
+    <th>Date</th>
+    <th>&nbsp;</th>
   </tr>
 
 <% @meals.each do |meal| %>
   <tr>
-    <td><%= link_to 'Show', meal %></td>
-    <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
-    <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= meal.name %></td>
+    <td><%= "#{meal.date}, #{meal.time}"%></td>
+    <td><%= link_to 'Show', meal %>|<%= link_to 'Edit', edit_meal_path(meal) %>|<%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

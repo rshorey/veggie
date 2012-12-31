@@ -13,7 +13,7 @@
   
   <%= f.label :name %>:
   <%= f.text_field :name %><br />
-  <%= f.label :description %>:
+  A general description of the meal: <br />
   <%= f.text_field :description %><br />
   <%= f.label :street_address %>:
   <%= f.text_field :street_address %><br />
@@ -25,11 +25,12 @@
   <%= f.label :zip_code %>:
   <%= f.text_field :zip_code %><br />
   
-  Date: <%= date_select(@meal, :date, :default => 7.days.from_now) %> <br />
-  Time: <%= time_select(@meal, :time, :default => {:hour => 19, :minute => 0}, :ignore_date => true, :minute_step => 15)%><br />
+  Date: <%= date_select(:meal, :date, :default => 7.days.from_now) %> <br />
+  
+  Are there any animals living at the host's house? <br />
+  <%= f.text_area :pets %><br />
 
-
-  <%= f.label :notes %>:
+  Any other notes? (for example, how to get in to the house)<br />
   <%= f.text_area :notes %><br />
   
 

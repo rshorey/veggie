@@ -56,6 +56,7 @@ class MealsController < ApplicationController
   # PUT /meals/1
   # PUT /meals/1.json
   def update
+    
     @meal = Meal.find(params[:id])
 
     respond_to do |format|

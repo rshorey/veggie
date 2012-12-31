@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
-
-
+<h1> <%= @meal.name %></h1> <br />
+<%= @meal.description %> <br />
+Date: <%="#{@meal.date}, #{@meal.time}"%> <br />
+Location: <%= "#{@meal.street_address}, #{@meal.city}, #{@meal.state}" %><br />
+Dishes: <%= @meal.dishes.map{|d| d.name}.join(",") %><br />
+Does the host have pets? <%= @meal.pets.present? ? @meal.pets : "no pets" %><br />
+Other notes: <%@meal.notes%><br />
+<%= params %>
 <%= link_to 'Edit', edit_meal_path(@meal) %> |
 <%= link_to 'Back', meals_path %>
